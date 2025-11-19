@@ -458,6 +458,7 @@ function setupMap() {
         point.addEventListener('drop', handleDrop);
         point.addEventListener('dragleave', handleDragLeave);
         point.addEventListener('click', () => handleMapPointClick(point));
+        point.addEventListener('touchend', () => handleMapPointClick(point, { ignoreDragState: true }), { passive: true });
         
         mapPoints.appendChild(point);
     });
@@ -537,6 +538,8 @@ function handleTouchEnd(e) {
 
     if (mapPoint) {
         assignCardToPoint(mapPoint, draggedElement);
+    } else {
+        handleCardClick(draggedElement, { ignoreDragState: true });
     }
 
     draggedElement.classList.remove('dragging');
@@ -552,8 +555,8 @@ function handleDrop(e) {
     }
 }
 
-function handleCardClick(cardEl) {
-    if (draggedElement) return;
+function handleCardClick(cardEl, { ignoreDragState = false } = {}) {
+    if (draggedElement && !ignoreDragState) return;
     if (selectedCard === cardEl) {
         clearCardSelection();
         return;
@@ -564,8 +567,8 @@ function handleCardClick(cardEl) {
     }
 }
 
-function handleMapPointClick(mapPoint) {
-    if (draggedElement) return;
+function handleMapPointClick(mapPoint, { ignoreDragState = false } = {}) {
+    if (draggedElement && !ignoreDragState) return;
     if (selectedMapPoint === mapPoint) {
         clearMapPointSelection();
         return;
