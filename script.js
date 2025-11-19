@@ -553,7 +553,7 @@ function setupCards() {
         card.textContent = item.name;
         card.draggable = true;
         card.dataset.name = item.name;
-        const color = lightenColor(baseColor, index * 0.08);
+        const color = baseColor;
         card.dataset.color = color;
         card.style.borderColor = color;
         card.style.boxShadow = `0 6px 18px ${hexToRgba(color, 0.35)}`;
@@ -564,6 +564,7 @@ function setupCards() {
         card.addEventListener('dragend', handleDragEnd);
         // Mobil (touch) desteği
         card.addEventListener('touchstart', handleTouchStart, { passive: true });
+        card.addEventListener('touchmove', handleTouchMove, { passive: true });
         card.addEventListener('touchend', handleTouchEnd);
         card.addEventListener('touchcancel', handleTouchEnd);
         card.addEventListener('click', () => handleCardClick(card));
@@ -576,6 +577,12 @@ function setupCards() {
 let draggedElement = null;
 let selectedCard = null;
 let selectedMapPoint = null;
+let touchDragData = {
+    card: null,
+    startX: 0,
+    startY: 0,
+    isDragging: false
+};
 
 function handleDragStart(e) {
     draggedElement = e.currentTarget;
@@ -598,25 +605,43 @@ function handleDragLeave(e) {
 
 // Mobil dokunma ile sürükle-bırak benzeri davranış
 function handleTouchStart(e) {
-    const target = e.currentTarget;
-    draggedElement = target;
-    target.classList.add('dragging');
+    const touch = e.touches[0];
+    touchDragData.card = e.currentTarget;
+    touchDragData.startX = touch.clientX;
+    touchDragData.startY = touch.clientY;
+    touchDragData.isDragging = false;
+}
+
+function handleTouchMove(e) {
+    if (!touchDragData.card) return;
+    const touch = e.touches[0];
+    const dx = Math.abs(touch.clientX - touchDragData.startX);
+    const dy = Math.abs(touch.clientY - touchDragData.startY);
+    if (!touchDragData.isDragging && (dx > 6 || dy > 6)) {
+        touchDragData.isDragging = true;
+        draggedElement = touchDragData.card;
+        draggedElement.classList.add('dragging');
+    }
 }
 
 function handleTouchEnd(e) {
-    if (!draggedElement) return;
-    const touch = e.changedTouches[0];
-    const element = document.elementFromPoint(touch.clientX, touch.clientY);
-    const mapPoint = element && element.closest ? element.closest('.map-point') : null;
-
-    if (mapPoint) {
-        assignCardToPoint(mapPoint, draggedElement);
-    } else {
-        handleCardClick(draggedElement, { ignoreDragState: true });
+    const activeCard = touchDragData.card;
+    const wasDragging = touchDragData.isDragging;
+    touchDragData.card = null;
+    touchDragData.isDragging = false;
+    
+    if (wasDragging && draggedElement) {
+        const touch = e.changedTouches[0];
+        const element = document.elementFromPoint(touch.clientX, touch.clientY);
+        const mapPoint = element && element.closest ? element.closest('.map-point') : null;
+        if (mapPoint) {
+            assignCardToPoint(mapPoint, draggedElement);
+        }
+        draggedElement.classList.remove('dragging');
+        draggedElement = null;
+    } else if (activeCard) {
+        handleCardClick(activeCard, { ignoreDragState: true });
     }
-
-    draggedElement.classList.remove('dragging');
-    draggedElement = null;
 }
 
 function handleDrop(e) {
