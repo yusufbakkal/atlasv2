@@ -14,7 +14,7 @@ body {
 }
 
 .container {
-    max-width: 1400px;
+    max-width: 1650px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -248,8 +248,8 @@ header {
 .game-container {
     position: relative;
     display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 20px;
+    grid-template-columns: minmax(0, 1.35fr) 360px;
+    gap: 24px;
     margin-bottom: 20px;
 }
 

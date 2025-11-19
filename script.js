@@ -119,6 +119,89 @@ function getDefaultQuizzes() {
                 { name: 'Menteşe', x: 17.47, y: 76.02 },
                 { name: 'Amanos(Nur)', x: 55.45, y: 80.91 }
             ]
+        },
+        {
+            id: '1763556772743',
+            name: 'Karstik Platolar',
+            category: 'platolar',
+            items: [
+                { name: 'Teke', x: 25.45, y: 84.83 },
+                { name: 'Taşeli', x: 42.38, y: 86.78 }
+            ]
+        },
+        {
+            id: '1763557089167',
+            name: 'Volkanik Dağlar',
+            category: 'daglar',
+            items: [
+                { name: 'Kula', x: 17.34, y: 54.18 },
+                { name: 'Hasan', x: 43.75, y: 56.13 },
+                { name: 'Karadağ', x: 38.94, y: 70.15 },
+                { name: 'Karacadağ', x: 42.93, y: 65.26 },
+                { name: 'Melendiz', x: 46.64, y: 58.09 },
+                { name: 'Erciyes', x: 52.7, y: 50.26 },
+                { name: 'Karacadağ(Doğu)', x: 72.51, y: 62.33 },
+                { name: 'Nemrut', x: 80.76, y: 51.9 },
+                { name: 'Süphan', x: 84.2, y: 46.68 },
+                { name: 'Tendürek', x: 87.37, y: 42.77 },
+                { name: 'Ağrı', x: 91.91, y: 38.85 }
+            ]
+        },
+        {
+            id: '1763557213635',
+            name: 'Volkanik Platolar',
+            category: 'daglar',
+            items: [
+                { name: 'Kırşehir', x: 44.85, y: 45.37 },
+                { name: 'Kapadokya', x: 47.47, y: 55.48 },
+                { name: 'Ardahan(Yazılıkaya)', x: 85.31, y: 22.22 },
+                { name: 'Erzurum-Kars', x: 82.83, y: 33.31 }
+            ]
+        },
+        {
+            id: '1763557301070',
+            name: 'Aşınım Platolar',
+            category: 'platolar',
+            items: [
+                { name: 'Çatalca-Kocaeli', x: 21, y: 19.54 },
+                { name: 'Perşembe', x: 60.35, y: 23.45 }
+            ]
+        },
+        {
+            id: '1763557515610',
+            name: 'Tabaka Düzlüğü Platolar',
+            category: 'daglar',
+            items: [
+                { name: 'Yazılıkaya', x: 28.29, y: 48.23 },
+                { name: 'Haymana', x: 37.23, y: 36.82 },
+                { name: 'Obruk', x: 37.92, y: 69.1 },
+                { name: 'Bozok', x: 50.99, y: 37.8 },
+                { name: 'Uzunyayla', x: 63.92, y: 48.23 },
+                { name: 'Gaziantep', x: 60.62, y: 79.53 },
+                { name: 'Şanlıurfa', x: 68.74, y: 75.95 },
+                { name: 'Cihanbeyli', x: 37.37, y: 58.34 }
+            ]
+        },
+        {
+            id: '1763557788895',
+            name: 'Başlıca Şelaleler',
+            category: 'selaleler',
+            items: [
+                { name: 'Samandere', x: 30.21, y: 23.45 },
+                { name: 'Ilıca', x: 40.95, y: 12.69 },
+                { name: 'Erfelek', x: 48.93, y: 9.1 },
+                { name: 'Gelintülü', x: 75.76, y: 25.08 },
+                { name: 'Bulut', x: 77.41, y: 19.86 },
+                { name: 'Tortum', x: 79.2, y: 32.58 },
+                { name: 'Muradiye', x: 88.55, y: 49.54 },
+                { name: 'Girlevik', x: 70.25, y: 40.41 },
+                { name: 'Kapuzbaşı', x: 51.54, y: 54.75 },
+                { name: 'Gürpınar', x: 64.47, y: 52.14 },
+                { name: 'Kurşunlu', x: 26.64, y: 77.9 },
+                { name: 'Düden', x: 26.36, y: 84.75 },
+                { name: 'Manavgat', x: 35.58, y: 84.75 },
+                { name: 'Yerköprü', x: 44.39, y: 81.81 }
+            ]
         }
     ];
 }
