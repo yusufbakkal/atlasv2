@@ -400,6 +400,7 @@ function startQuiz(quizId) {
     
     placedCards = {};
     cardAssignments = {};
+    clearSelections();
     hideAllScreens();
     document.getElementById('gameScreen').classList.add('active');
     document.getElementById('quizTitle').textContent = currentQuiz.name;
@@ -456,6 +457,7 @@ function setupMap() {
         point.addEventListener('dragover', handleDragOver);
         point.addEventListener('drop', handleDrop);
         point.addEventListener('dragleave', handleDragLeave);
+        point.addEventListener('click', () => handleMapPointClick(point));
         
         mapPoints.appendChild(point);
     });
@@ -490,6 +492,7 @@ function setupCards() {
         card.addEventListener('touchstart', handleTouchStart, { passive: true });
         card.addEventListener('touchend', handleTouchEnd);
         card.addEventListener('touchcancel', handleTouchEnd);
+        card.addEventListener('click', () => handleCardClick(card));
         
         cardsList.appendChild(card);
     });
@@ -497,6 +500,8 @@ function setupCards() {
 
 // Sürükle-bırak fonksiyonları
 let draggedElement = null;
+let selectedCard = null;
+let selectedMapPoint = null;
 
 function handleDragStart(e) {
     draggedElement = e.currentTarget;
@@ -547,6 +552,67 @@ function handleDrop(e) {
     }
 }
 
+function handleCardClick(cardEl) {
+    if (draggedElement) return;
+    if (selectedCard === cardEl) {
+        clearCardSelection();
+        return;
+    }
+    setSelectedCard(cardEl);
+    if (selectedMapPoint) {
+        assignCardToPoint(selectedMapPoint, cardEl);
+    }
+}
+
+function handleMapPointClick(mapPoint) {
+    if (draggedElement) return;
+    if (selectedMapPoint === mapPoint) {
+        clearMapPointSelection();
+        return;
+    }
+    setSelectedMapPoint(mapPoint);
+    if (selectedCard) {
+        assignCardToPoint(mapPoint, selectedCard);
+    }
+}
+
+function setSelectedCard(cardEl) {
+    if (selectedCard && selectedCard !== cardEl) {
+        selectedCard.classList.remove('selected');
+    }
+    selectedCard = cardEl;
+    if (selectedCard) {
+        selectedCard.classList.add('selected');
+    }
+}
+
+function clearCardSelection() {
+    if (!selectedCard) return;
+    selectedCard.classList.remove('selected');
+    selectedCard = null;
+}
+
+function setSelectedMapPoint(mapPoint) {
+    if (selectedMapPoint && selectedMapPoint !== mapPoint) {
+        selectedMapPoint.classList.remove('selected');
+    }
+    selectedMapPoint = mapPoint;
+    if (selectedMapPoint) {
+        selectedMapPoint.classList.add('selected');
+    }
+}
+
+function clearMapPointSelection() {
+    if (!selectedMapPoint) return;
+    selectedMapPoint.classList.remove('selected');
+    selectedMapPoint = null;
+}
+
+function clearSelections() {
+    clearCardSelection();
+    clearMapPointSelection();
+}
+
 function assignCardToPoint(mapPoint, cardEl) {
     const pointIndex = parseInt(mapPoint.dataset.index, 10);
     const cardName = cardEl.dataset.name;
@@ -589,6 +655,7 @@ function assignCardToPoint(mapPoint, cardEl) {
     cardEl.classList.add('linked');
 
     createConnection(pointIndex, cardName, cardColor);
+    clearSelections();
 }
 
 function createConnection(pointIndex, labelText, color) {

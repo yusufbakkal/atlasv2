@@ -315,6 +315,11 @@ header {
     transform: translate(-50%, -50%);
 }
 
+.map-point.selected {
+    transform: translate(-50%, -50%) scale(1.12);
+    box-shadow: 0 0 0 6px rgba(90, 103, 216, 0.35), 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
 .map-point:hover {
     transform: translate(-50%, -50%) scale(1.1);
 }
@@ -397,6 +402,10 @@ header {
     background: #f7fafc;
     border-radius: 10px;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    max-height: 78vh;
+    overflow: hidden;
 }
 
 .cards-list {
@@ -404,6 +413,14 @@ header {
     flex-direction: column;
     gap: 10px;
     margin-top: 15px;
+    overflow-y: auto;
+    padding-right: 6px;
+    scrollbar-width: none;
+}
+
+.cards-list::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
 
 .card {
@@ -417,11 +434,6 @@ header {
     text-align: center;
 }
 
-.card:hover {
-    transform: translateX(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
 .card.dragging {
     opacity: 0.5;
     cursor: grabbing;
@@ -430,6 +442,16 @@ header {
 .card.linked {
     opacity: 0.4;
     transform: scale(0.97);
+}
+
+.card.selected {
+    outline: 3px solid #5a67d8;
+    outline-offset: 3px;
+    opacity: 1;
+}
+
+.card.linked.selected {
+    opacity: 1;
 }
 
 .card.removing {
