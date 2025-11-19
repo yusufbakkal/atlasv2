@@ -89,52 +89,6 @@ let pickerSelection = null;
 function getDefaultQuizzes() {
     return [
         {
-            id: 'platolar',
-            name: 'Türkiye\'nin Platoları',
-            category: 'platolar',
-            items: [
-                { name: 'Erzurum-Kars Platosu', x: 85, y: 40 },
-                { name: 'Doğu Anadolu Platosu', x: 80, y: 45 },
-                { name: 'İç Anadolu Platosu', x: 50, y: 45 },
-                { name: 'Ardahan Platosu', x: 88, y: 35 },
-                { name: 'Uzunyayla Platosu', x: 60, y: 42 }
-            ]
-        },
-        {
-            id: 'daglar',
-            name: 'Önemli Dağlar',
-            category: 'daglar',
-            items: [
-                { name: 'Ağrı Dağı', x: 90, y: 40 },
-                { name: 'Erciyes Dağı', x: 58, y: 47 },
-                { name: 'Süphan Dağı', x: 87, y: 42 },
-                { name: 'Uludağ', x: 25, y: 40 },
-                { name: 'Kaçkar Dağları', x: 83, y: 33 }
-            ]
-        },
-        {
-            id: 'goller',
-            name: 'Büyük Göller',
-            category: 'goller',
-            items: [
-                { name: 'Van Gölü', x: 88, y: 43 },
-                { name: 'Tuz Gölü', x: 50, y: 48 },
-                { name: 'Beyşehir Gölü', x: 45, y: 55 },
-                { name: 'Eğirdir Gölü', x: 42, y: 56 },
-                { name: 'Burdur Gölü', x: 40, y: 58 }
-            ]
-        },
-        {
-            id: '1763554905548',
-            name: 'sdsds',
-            category: 'daglar',
-            items: [
-                { name: 'df', x: 47.88, y: 27.12 },
-                { name: 'f', x: 36.87, y: 37.87 },
-                { name: 'a', x: 60.26, y: 45.37 }
-            ]
-        },
-        {
             id: '1763555697984',
             name: 'Delta Ovaları',
             category: 'ovalar',
