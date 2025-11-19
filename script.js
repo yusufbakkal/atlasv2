@@ -6,9 +6,6 @@ let startTime = null;
 let placedCards = {};
 let cardAssignments = {};
 let currentEditingQuizId = null;
-const ADMIN_PASSWORD = 'OverAtlas2025';
-let adminLoginModal = null;
-let adminPasswordInput = null;
 const uiModalState = {
     container: null,
     titleEl: null,
@@ -126,6 +123,16 @@ function getDefaultQuizzes() {
                 { name: 'Eğirdir Gölü', x: 42, y: 56 },
                 { name: 'Burdur Gölü', x: 40, y: 58 }
             ]
+        },
+        {
+            id: '1763554905548',
+            name: 'sdsds',
+            category: 'daglar',
+            items: [
+                { name: 'df', x: 47.88, y: 27.12 },
+                { name: 'f', x: 36.87, y: 37.87 },
+                { name: 'a', x: 60.26, y: 45.37 }
+            ]
         }
     ];
 }
@@ -221,58 +228,11 @@ function showConfirmModal(message, onConfirm, title = 'Onay') {
     });
 }
 
-function setupAdminLogin() {
-    adminLoginModal = document.getElementById('adminLoginModal');
-    adminPasswordInput = document.getElementById('adminPasswordInput');
-    const adminLoginForm = document.getElementById('adminLoginForm');
-    const adminLoginClose = document.getElementById('adminLoginClose');
-    const adminLoginCancel = document.getElementById('adminLoginCancel');
-
-    if (!adminLoginModal || !adminLoginForm) return;
-
-    adminLoginForm.addEventListener('submit', handleAdminLoginSubmit);
-    adminLoginClose?.addEventListener('click', closeAdminLoginModal);
-    adminLoginCancel?.addEventListener('click', closeAdminLoginModal);
-}
-
-function openAdminLoginModal() {
-    if (!adminLoginModal) {
-        showAdminPanel();
-        return;
-    }
-    adminLoginModal.style.display = 'block';
-    if (adminPasswordInput) {
-        adminPasswordInput.value = '';
-        adminPasswordInput.focus();
-    }
-}
-
-function closeAdminLoginModal() {
-    if (adminLoginModal) {
-        adminLoginModal.style.display = 'none';
-    }
-}
-
-function handleAdminLoginSubmit(e) {
-    e.preventDefault();
-    const inputValue = adminPasswordInput?.value || '';
-    if (inputValue === ADMIN_PASSWORD) {
-        closeAdminLoginModal();
-        showAdminPanel();
-    } else {
-        showAlertModal('Şifre yanlış, tekrar deneyin.');
-        if (adminPasswordInput) {
-            adminPasswordInput.focus();
-        }
-    }
-}
-
 // Sayfa yüklendiğinde
 document.addEventListener('DOMContentLoaded', () => {
     setupEventListeners();
     setupLocationPicker();
     setupUiMessageModal();
-    setupAdminLogin();
     initializeMapImages();
     updateAdminQuizList();
     showQuizSelection();
@@ -283,7 +243,7 @@ function setupEventListeners() {
     // Ana menü butonları
     const adminBtn = document.getElementById('adminBtn');
     if (adminBtn) {
-        adminBtn.addEventListener('click', openAdminLoginModal);
+        adminBtn.addEventListener('click', showAdminPanel);
     }
     const logoHome = document.getElementById('logoHome');
     if (logoHome) {
@@ -319,9 +279,6 @@ function setupEventListeners() {
         }
         if (e.target.id === 'locationPicker') {
             closeLocationPicker();
-        }
-        if (e.target.id === 'adminLoginModal') {
-            closeAdminLoginModal();
         }
     });
     
