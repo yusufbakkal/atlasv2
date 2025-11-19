@@ -241,6 +241,18 @@ function getDefaultQuizzes() {
                 { name: 'Nazik', x: 82.36, y: 58.66 },
                 { name: 'Erçek', x: 89.93, y: 60.95 }
             ]
+        },
+        {
+            id: '1763561919920',
+            name: 'Heyelan Set Gölleri',
+            category: 'goller',
+            items: [
+                { name: 'Yedigöller', x: 34.07, y: 23.45 },
+                { name: 'Abant', x: 32.14, y: 28.99 },
+                { name: 'Borabay', x: 51.4, y: 24.1 },
+                { name: 'Zinav', x: 56.91, y: 30.3 },
+                { name: 'Tortum', x: 80.71, y: 30.62 }
+            ]
         }
     ];
 }
