@@ -133,6 +133,24 @@ function getDefaultQuizzes() {
                 { name: 'f', x: 36.87, y: 37.87 },
                 { name: 'a', x: 60.26, y: 45.37 }
             ]
+        },
+        {
+            id: '1763555697984',
+            name: 'Delta Ovaları',
+            category: 'ovalar',
+            items: [
+                { name: 'Bafra', x: 53.25, y: 12.12 },
+                { name: 'Çarsamba', x: 57.1, y: 17.99 },
+                { name: 'Çukurova', x: 50.36, y: 81.89 },
+                { name: 'Asi', x: 53.8, y: 89.07 },
+                { name: 'Silifke', x: 42.93, y: 87.43 },
+                { name: 'Sakarya', x: 26.42, y: 19.29 },
+                { name: 'Meriç', x: 7.43, y: 24.51 },
+                { name: 'Dikili', x: 10.73, y: 47.66 },
+                { name: 'Menemen', x: 10.73, y: 55.48 },
+                { name: 'Selçuk', x: 12.52, y: 64.61 },
+                { name: 'Balat', x: 12.8, y: 71.46 }
+            ]
         }
     ];
 }
