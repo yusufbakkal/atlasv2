@@ -253,6 +253,16 @@ function getDefaultQuizzes() {
                 { name: 'Zinav', x: 56.91, y: 30.3 },
                 { name: 'Tortum', x: 80.71, y: 30.62 }
             ]
+        },
+        {
+            id: '1763562210632',
+            name: 'Volkanik Göller',
+            category: 'goller',
+            items: [
+                { name: 'Acıgöl Maar Gölü', x: 47.69, y: 51.82 },
+                { name: 'Meke Maar Gölü', x: 38.88, y: 66.49 },
+                { name: 'Nemrut Krater Gölü', x: 84.42, y: 56.06 }
+            ]
         }
     ];
 }
