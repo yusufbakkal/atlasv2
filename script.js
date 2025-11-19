@@ -105,6 +105,20 @@ function getDefaultQuizzes() {
                 { name: 'Selçuk', x: 12.52, y: 64.61 },
                 { name: 'Balat', x: 12.8, y: 71.46 }
             ]
+        },
+        {
+            id: '1763556481883',
+            name: 'Kırık Dağlar',
+            category: 'daglar',
+            items: [
+                { name: 'Kaz', x: 9.49, y: 38.2 },
+                { name: 'Madra', x: 11.56, y: 44.07 },
+                { name: 'Yunt', x: 11.97, y: 51.57 },
+                { name: 'Bozdağlar', x: 14.17, y: 58.42 },
+                { name: 'Aydın', x: 14.31, y: 68.52 },
+                { name: 'Menteşe', x: 17.47, y: 76.02 },
+                { name: 'Amanos(Nur)', x: 55.45, y: 80.91 }
+            ]
         }
     ];
 }
