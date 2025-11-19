@@ -202,6 +202,32 @@ function getDefaultQuizzes() {
                 { name: 'Manavgat', x: 35.58, y: 84.75 },
                 { name: 'Yerköprü', x: 44.39, y: 81.81 }
             ]
+        },
+        {
+            id: '1763561284849',
+            name: 'Kıyı Set Gölleri',
+            category: 'goller',
+            items: [
+                { name: 'Balık', x: 53.19, y: 12.69 },
+                { name: 'Terkos', x: 20.45, y: 16.93 },
+                { name: 'K. Çekmece', x: 21.27, y: 22.47 },
+                { name: 'B. Çekmece', x: 19.07, y: 20.84 },
+                { name: 'Akyatan', x: 50.58, y: 83.12 },
+                { name: 'Ağyatan', x: 52.78, y: 80.18 }
+            ]
+        },
+        {
+            id: '1763561456369',
+            name: 'Alüvyal Set Gölleri',
+            category: 'goller',
+            items: [
+                { name: 'Eymir', x: 37.78, y: 32.58 },
+                { name: 'Mogan', x: 36.96, y: 42.36 },
+                { name: 'Gala', x: 8.06, y: 23.78 },
+                { name: 'Marmara', x: 17.01, y: 54.75 },
+                { name: 'Bafa', x: 14.12, y: 72.03 },
+                { name: 'Köyceğiz', x: 19.48, y: 80.84 }
+            ]
         }
     ];
 }
