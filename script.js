@@ -263,6 +263,18 @@ function getDefaultQuizzes() {
                 { name: 'Meke Maar Gölü', x: 38.88, y: 66.49 },
                 { name: 'Nemrut Krater Gölü', x: 84.42, y: 56.06 }
             ]
+        },
+        {
+            id: '1763562436132',
+            name: 'Karstik Göller',
+            category: 'goller',
+            items: [
+                { name: 'Hafik', x: 59.8, y: 41.71 },
+                { name: 'Suğla', x: 35.31, y: 69.42 },
+                { name: 'Salda', x: 25.12, y: 72.69 },
+                { name: 'Avlan', x: 25.26, y: 85.4 },
+                { name: 'Kestel', x: 27.6, y: 72.03 }
+            ]
         }
     ];
 }
