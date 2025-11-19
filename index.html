@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Türkiye Coğrafya Oyunu</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div id="logoHome" class="logo">
+                <img src="Generated Image November 18, 2025 - 9_33PM.png" alt="Over the Atlas">
+                <span class="logo-text">Over the Atlas</span>
+            </div>
+            <div class="header-controls">
+                <button id="adminBtn" class="btn btn-admin">Quiz Yönetimi</button>
+            </div>
+        </header>
+
+        <!-- Quiz Seçim Ekranı -->
+        <div id="quizSelection" class="screen active">
+            <h2>Quiz Seçin</h2>
+            <div id="quizList" class="quiz-grid">
+                <!-- Dinamik olarak yüklenecek -->
+            </div>
+        </div>
+
+        <!-- Oyun Ekranı -->
+        <div id="gameScreen" class="screen">
+            <div class="game-header">
+                <div class="game-info">
+                    <h2 id="quizTitle"></h2>
+                    <span id="quizCategoryLabel" class="quiz-category-badge"></span>
+                </div>
+                <div class="timer">
+                    <span id="timer">0:00</span>
+                </div>
+            </div>
+
+            <div class="game-container" id="gameArea">
+                <svg id="globalConnectorLayer" class="global-connector" preserveAspectRatio="none"></svg>
+                <!-- Harita Alanı -->
+                <div class="map-container" id="gameMapContainer">
+                    <div class="map-stage">
+                        <img id="turkeyMap" src="tr.svg" alt="Türkiye Haritası">
+                        <div id="mapPoints" class="map-points">
+                            <!-- İşaret noktaları dinamik olarak eklenecek -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kartlar Alanı -->
+                <div class="cards-container">
+                    <h3>Kartları Sürükleyip Bırakın</h3>
+                    <div id="cardsList" class="cards-list">
+                        <!-- Kartlar dinamik olarak yüklenecek -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-controls">
+                <button id="checkAnswers" class="btn btn-success">Cevapları Kontrol Et</button>
+                <button id="backToMenu" class="btn btn-secondary">Ana Menüye Dön</button>
+            </div>
+        </div>
+
+        <!-- Sonuç Ekranı -->
+        <div id="resultScreen" class="screen">
+            <h2>Oyun Sonucu</h2>
+            <div class="result-stats">
+                <div class="stat">
+                    <span class="stat-label">Doğru:</span>
+                    <span id="correctCount" class="stat-value correct">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Yanlış:</span>
+                    <span id="wrongCount" class="stat-value wrong">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Süre:</span>
+                    <span id="totalTime" class="stat-value">0:00</span>
+                </div>
+            </div>
+
+            <div id="resultDetails" class="result-details">
+                <!-- Detaylı sonuçlar buraya eklenecek -->
+            </div>
+
+            <div class="result-controls">
+                <button id="playAgain" class="btn btn-primary">Tekrar Oyna</button>
+                <button id="backToMenuResult" class="btn btn-secondary">Ana Menüye Dön</button>
+            </div>
+        </div>
+
+        <!-- Quiz Yönetim Paneli -->
+        <div id="adminPanel" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Quiz Yönetimi</h2>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="admin-controls">
+                        <button id="addQuizBtn" class="btn btn-primary">Yeni Quiz Ekle</button>
+                        <button id="editQuizBtn" class="btn btn-secondary">Quiz Düzenle</button>
+                    </div>
+
+                    <!-- Quiz Ekleme Formu -->
+                    <div id="quizForm" class="quiz-form" style="display: none;">
+                        <h3>Yeni Quiz Ekle</h3>
+                        <form id="addQuizForm">
+                            <div class="form-group">
+                                <label for="quizName">Quiz Adı:</label>
+                                <input type="text" id="quizName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="quizCategory">Kategori:</label>
+                                <select id="quizCategory">
+                                    <option value="daglar">Dağlar</option>
+                                    <option value="ovalar">Ovalar</option>
+                                    <option value="goller">Göller</option>
+                                    <option value="akarsular">Akarsular</option>
+                                    <option value="selaleler">Şelaleler</option>
+                                    <option value="platolar">Platolar</option>
+                                    <option value="gecitler">Geçitler</option>
+                                    <option value="diger">Diğer</option>
+                                </select>
+                            </div>
+                            <div id="quizItems" class="quiz-items">
+                                <h4>Öğeler</h4>
+                                <div id="itemsList"></div>
+                                <button type="button" id="addItemBtn" class="btn btn-small">Öğe Ekle</button>
+                            </div>
+                            <div class="form-controls">
+                                <button type="submit" class="btn btn-success">Kaydet</button>
+                                <button type="button" id="cancelQuizForm" class="btn btn-secondary">İptal</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Quiz Listesi -->
+                    <div id="adminQuizList" class="admin-quiz-list">
+                        <!-- Mevcut quizler buraya yüklenecek -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Konum Seçim Paneli -->
+        <div id="locationPicker" class="modal">
+            <div class="modal-content location-picker">
+                <div class="modal-header">
+                    <h2>Harita Üzerinden Konum Seç</h2>
+                    <span id="closeLocationPicker" class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p class="picker-instruction">Harita üzerinde ilgili noktaya tıklayın. Yüzde koordinatlar otomatik dolacak.</p>
+                    <div id="pickerMapContainer" class="map-container picker">
+                        <div class="map-stage">
+                            <img id="pickerMap" src="tr.svg" alt="Türkiye Haritası">
+                            <div id="pickerMarkers" class="picker-markers"></div>
+                        </div>
+                    </div>
+                    <div class="picker-info">
+                        <div>X: <span id="pickerXValue">-</span>%</div>
+                        <div>Y: <span id="pickerYValue">-</span>%</div>
+                    </div>
+                    <div class="picker-actions">
+                        <button id="confirmLocation" class="btn btn-success">Konumu Onayla</button>
+                        <button id="cancelLocation" class="btn btn-secondary">İptal</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Genel Uyarı / Onay Modali -->
+        <div id="uiModal" class="modal small">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="uiModalTitle">Uyarı</h2>
+                    <span id="uiModalClose" class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p id="uiModalMessage"></p>
+                </div>
+                <div class="modal-footer">
+                    <button id="uiModalCancel" class="btn btn-secondary">İptal</button>
+                    <button id="uiModalConfirm" class="btn btn-primary">Tamam</button>
+                </div>
+            </div>
+        </div>
+        <!-- Admin Giriş Modali -->
+        <div id="adminLoginModal" class="modal small">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Admin Girişi</h2>
+                    <span id="adminLoginClose" class="close">&times;</span>
+                </div>
+                <form id="adminLoginForm">
+                    <div class="modal-body">
+                        <p>Quiz yönetimi için şifre giriniz.</p>
+                        <input type="password" id="adminPasswordInput" class="password-input" placeholder="Şifre" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="adminLoginCancel" class="btn btn-secondary">İptal</button>
+                        <button type="submit" class="btn btn-primary">Giriş Yap</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer class="credits">
+        <div>
+            <a href="https://www.flaticon.com/free-icons/river-plate" title="river plate icons" target="_blank" rel="noopener noreferrer">
+                River plate icons created by FACH - Flaticon
+            </a>
+        </div>
+        <div>
+            <a href="https://www.flaticon.com/free-icons/pond" title="pond icons" target="_blank" rel="noopener noreferrer">
+                Pond icons created by Freepik - Flaticon
+            </a>
+        </div>
+        <div>
+            <a href="https://www.flaticon.com/free-icons/rocky-mountains" title="rocky mountains icons" target="_blank" rel="noopener noreferrer">
+                Rocky mountains icons created by Pop Vectors - Flaticon
+            </a>
+        </div>
+        <div>
+            <a href="https://www.flaticon.com/free-icons/waterfall" title="waterfall icons" target="_blank" rel="noopener noreferrer">
+                Waterfall icons created by Chanut-is-Industries - Flaticon
+            </a>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
