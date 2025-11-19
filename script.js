@@ -228,6 +228,19 @@ function getDefaultQuizzes() {
                 { name: 'Bafa', x: 14.12, y: 72.03 },
                 { name: 'Köyceğiz', x: 19.48, y: 80.84 }
             ]
+        },
+        {
+            id: '1763561706964',
+            name: 'Volkanik Set Gölleri',
+            category: 'goller',
+            items: [
+                { name: 'Çıldır', x: 87.31, y: 20.84 },
+                { name: 'Balık', x: 87.18, y: 38.78 },
+                { name: 'Van', x: 89.38, y: 53.45 },
+                { name: 'Haçlı', x: 81.12, y: 49.86 },
+                { name: 'Nazik', x: 82.36, y: 58.66 },
+                { name: 'Erçek', x: 89.93, y: 60.95 }
+            ]
         }
     ];
 }
