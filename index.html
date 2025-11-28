@@ -5,18 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Türkiye Coğrafya Oyunu</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="harita/map.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G586S36TWX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-G586S36TWX');
-    </script>
 </head>
 <body>
     <div class="container">
@@ -32,9 +24,24 @@
 
         <!-- Quiz Seçim Ekranı -->
         <div id="quizSelection" class="screen active">
-            <h2>Quiz Seçin</h2>
-            <div id="quizList" class="quiz-grid">
-                <!-- Dinamik olarak yüklenecek -->
+            <h2>Kategori Seçin</h2>
+            <div id="categoryList" class="category-grid">
+                <!-- Kategoriler buraya yüklenecek -->
+            </div>
+        </div>
+
+        <!-- Kategori Quiz Modal -->
+        <div id="categoryQuizModal" class="modal">
+            <div class="modal-content category-quiz-modal">
+                <div class="modal-header">
+                    <h2 id="categoryModalTitle">Quizler</h2>
+                    <span id="closeCategoryModal" class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div id="categoryQuizList" class="quiz-grid">
+                        <!-- Kategoriye ait quizler buraya yüklenecek -->
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -52,6 +59,11 @@
 
             <div class="game-container" id="gameArea">
                 <svg id="globalConnectorLayer" class="global-connector" preserveAspectRatio="none"></svg>
+                <!-- Tarım Ürünleri Soru Alanı -->
+                <div id="agricultureQuestion" class="agriculture-question" style="display: none;">
+                    <h2 id="agricultureQuestionText"></h2>
+                    <p class="question-hint">Haritadan doğru ili seçin</p>
+                </div>
                 <!-- Harita Alanı -->
                 <div class="map-container" id="gameMapContainer">
                     <div class="map-stage">
@@ -63,8 +75,8 @@
                 </div>
 
                 <!-- Kartlar Alanı -->
-                <div class="cards-container">
-                    <h3>Kartları Seçin veya Sürükleyin</h3>
+                <div class="cards-container" id="cardsContainer">
+                    <h3>Kartları Sürükleyip Bırakın</h3>
                     <div id="cardsList" class="cards-list">
                         <!-- Kartlar dinamik olarak yüklenecek -->
                     </div>
@@ -136,6 +148,7 @@
                                     <option value="selaleler">Şelaleler</option>
                                     <option value="platolar">Platolar</option>
                                     <option value="gecitler">Geçitler</option>
+                                    <option value="tarim-urunleri">Tarım Ürünleri</option>
                                     <option value="diger">Diğer</option>
                                 </select>
                             </div>
@@ -181,6 +194,29 @@
                     <div class="picker-actions">
                         <button id="confirmLocation" class="btn btn-success">Konumu Onayla</button>
                         <button id="cancelLocation" class="btn btn-secondary">İptal</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- İl Seçim Paneli -->
+        <div id="cityPicker" class="modal">
+            <div class="modal-content city-picker">
+                <div class="modal-header">
+                    <h2>İl Seç</h2>
+                    <span id="closeCityPicker" class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p class="picker-instruction">Harita üzerinden il seçin.</p>
+                    <div id="cityPickerMapContainer" class="map-container city-picker-map">
+                        <div id="city-name" class="show-city-name"></div>
+                    </div>
+                    <div class="picker-info">
+                        <div>Seçilen İl: <span id="selectedCityName">-</span></div>
+                    </div>
+                    <div class="picker-actions">
+                        <button id="confirmCity" class="btn btn-success">İli Onayla</button>
+                        <button id="cancelCity" class="btn btn-secondary">İptal</button>
                     </div>
                 </div>
             </div>

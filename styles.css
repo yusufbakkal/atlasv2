@@ -624,6 +624,42 @@ header {
     background: #f8fafc;
 }
 
+.city-picker .modal-header {
+    background: #16a34a;
+}
+
+.city-picker .modal-body {
+    background: #f8fafc;
+}
+
+.city-picker-map {
+    margin: 20px 0;
+    padding: 15px;
+    background: #fff;
+    max-height: 70vh;
+    position: relative;
+}
+
+.city-picker-map svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.city-picker-map .show-city-name {
+    z-index: 1000;
+}
+
+/* Oyun ekranındaki harita için il ismi gösterimi */
+.map-stage {
+    position: relative;
+}
+
+.map-stage .show-city-name {
+    z-index: 1000;
+    pointer-events: none;
+}
+
 .map-container.picker {
     margin: 20px 0;
     padding: 15px;
@@ -759,10 +795,158 @@ header {
     align-items: center;
 }
 
+.quiz-item:has(.city-input) {
+    grid-template-columns: 1.5fr 1fr 0.7fr 0.4fr;
+}
+
+/* Tarım Ürünleri Soru Alanı */
+.agriculture-question {
+    background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(22, 163, 74, 0.3);
+}
+
+.agriculture-question h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.question-hint {
+    font-size: 1.1rem;
+    opacity: 0.95;
+    font-weight: 500;
+}
+
+/* Kategori Kartları */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.category-card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover::before {
+    transform: scaleX(1);
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border-color: #e2e8f0;
+}
+
+.category-card-icon {
+    font-size: 4rem;
+    line-height: 1;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover .category-card-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.category-card-content {
+    flex: 1;
+}
+
+.category-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin: 0 0 8px 0;
+}
+
+.category-card-count {
+    font-size: 1rem;
+    color: #718096;
+    margin: 0;
+    font-weight: 500;
+}
+
+.category-card-arrow {
+    font-size: 2rem;
+    color: #cbd5e0;
+    transition: all 0.3s ease;
+    font-weight: 300;
+}
+
+.category-card:hover .category-card-arrow {
+    color: #667eea;
+    transform: translateX(5px);
+}
+
+/* Kategori Quiz Modal */
+.category-quiz-modal {
+    max-width: 1200px;
+    width: 90%;
+    max-height: 90vh;
+}
+
+.category-quiz-modal .modal-body {
+    max-height: calc(90vh - 120px);
+    overflow-y: auto;
+    padding: 25px;
+}
+
+.modal-title-icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.empty-quiz-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: #718096;
+    font-size: 1.2rem;
+    background: white;
+    border-radius: 12px;
+    border: 2px dashed #e2e8f0;
+}
+
 .quiz-item input {
     padding: 8px;
     border: 1px solid #e2e8f0;
     border-radius: 5px;
+}
+
+.quiz-item .city-input {
+    background-color: #f7fafc;
+    cursor: pointer;
 }
 
 .remove-item {
