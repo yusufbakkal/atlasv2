@@ -277,10 +277,17 @@ header {
     position: relative;
     overflow: hidden;
     border-radius: 8px;
+    touch-action: manipulation;
 }
 
 .map-stage img {
     width: 100%;
+    display: block;
+}
+
+.map-stage svg {
+    width: 100%;
+    height: auto;
     display: block;
 }
 
@@ -1020,22 +1027,226 @@ header {
 }
 
 @media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
     h1 {
         font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
     }
     
     header {
         flex-direction: column;
         gap: 15px;
         text-align: center;
+        padding: 15px;
     }
     
     .quiz-grid {
         grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .category-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .category-card {
+        padding: 20px;
+    }
+    
+    .category-card-icon {
+        font-size: 3rem;
+    }
+    
+    .category-card-title {
+        font-size: 1.3rem;
     }
     
     .result-stats {
         flex-direction: column;
         gap: 20px;
+    }
+    
+    .game-container {
+        grid-template-columns: 1fr !important;
+        gap: 15px;
+    }
+    
+    .cards-container {
+        order: -1;
+    }
+    
+    .cards-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .card {
+        flex: 1 1 calc(50% - 5px);
+        min-width: 140px;
+        font-size: 0.9rem;
+        padding: 12px;
+    }
+    
+    .modal-content {
+        margin: 10% auto;
+        width: 95%;
+        max-width: 95%;
+    }
+    
+    .category-quiz-modal {
+        width: 95%;
+        max-width: 95%;
+    }
+    
+    .modal-body {
+        padding: 15px;
+    }
+    
+    .modal-header {
+        padding: 15px;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.3rem;
+    }
+    
+    .quiz-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    
+    .quiz-item:has(.city-input) {
+        grid-template-columns: 1fr;
+    }
+    
+    .quiz-item button {
+        width: 100%;
+    }
+    
+    .agriculture-question {
+        padding: 20px;
+    }
+    
+    .agriculture-question h2 {
+        font-size: 1.8rem;
+    }
+    
+    .question-hint {
+        font-size: 1rem;
+    }
+    
+    .map-container {
+        padding: 10px;
+    }
+    
+    .city-picker-map,
+    .map-container.picker {
+        padding: 10px;
+    }
+    
+    .picker-info {
+        flex-direction: column;
+        gap: 10px;
+        font-size: 0.9rem;
+    }
+    
+    .picker-actions {
+        flex-direction: column;
+    }
+    
+    .picker-actions button {
+        width: 100%;
+    }
+    
+    .game-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+    
+    .game-controls {
+        flex-direction: column;
+    }
+    
+    .game-controls button {
+        width: 100%;
+    }
+    
+    .btn {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+    }
+    
+    .category-tabs {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .category-tab {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 8px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+    }
+    
+    .category-card {
+        padding: 15px;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .category-card-icon {
+        font-size: 2.5rem;
+    }
+    
+    .category-card-arrow {
+        display: none;
+    }
+    
+    .agriculture-question h2 {
+        font-size: 1.5rem;
+    }
+    
+    .card {
+        flex: 1 1 100%;
+        min-width: 100%;
+    }
+    
+    .modal-content {
+        margin: 5% auto;
+        border-radius: 8px;
+    }
+    
+    .modal-header {
+        padding: 12px;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.1rem;
+    }
+    
+    .show-city-name {
+        font-size: 14px;
+        padding: 10px 15px;
     }
 }

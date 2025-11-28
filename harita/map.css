@@ -41,11 +41,17 @@ body {
   stroke-width:0.5;
   transition: all .3s ease-out;
   cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 
 
   &:hover {
      fill: #a9a9a9;
    }
+  
+  &:active {
+    fill: #16a34a;
+  }
 }
 
 .show-city-name {

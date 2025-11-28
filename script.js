@@ -330,7 +330,7 @@ function loadCityPickerMap() {
                 if (svg) {
                     const paths = svg.querySelectorAll('path.city');
                     paths.forEach(path => {
-                        path.addEventListener('click', function() {
+                        const handleCityClick = function() {
                             const cityName = this.getAttribute('title');
                             selectedCityName = cityName;
                             if (cityPickerCityNameDisplay) {
@@ -338,7 +338,12 @@ function loadCityPickerMap() {
                             }
                             paths.forEach(p => p.style.fill = '#CCCCCC');
                             this.style.fill = '#16a34a';
-                        });
+                        };
+                        path.addEventListener('click', handleCityClick);
+                        path.addEventListener('touchend', function(e) {
+                            e.preventDefault();
+                            handleCityClick.call(this);
+                        }, { passive: false });
                         path.addEventListener('mousemove', function(e) {
                             const cityNameEl = cityPickerMapContainer.querySelector('#city-name');
                             if (cityNameEl) {
@@ -763,9 +768,14 @@ function setupMap() {
                         if (svg) {
                             const paths = svg.querySelectorAll('path.city');
                             paths.forEach(path => {
-                                path.addEventListener('click', function() {
+                                const handleCitySelectionClick = function() {
                                     handleCitySelection(this.getAttribute('title'));
-                                });
+                                };
+                                path.addEventListener('click', handleCitySelectionClick);
+                                path.addEventListener('touchend', function(e) {
+                                    e.preventDefault();
+                                    handleCitySelectionClick.call(this);
+                                }, { passive: false });
                         path.addEventListener('mousemove', function(e) {
                             const cityNameEl = mapStage.querySelector('#game-city-name');
                             if (cityNameEl) {
