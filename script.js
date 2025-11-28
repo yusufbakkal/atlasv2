@@ -643,15 +643,27 @@ function createQuizCard(quiz) {
 
 // Quiz'i başlat
 function startQuiz(quizId) {
-    currentQuiz = quizzes.find(q => q.id === quizId);
-    if (!currentQuiz) return;
+    const originalQuiz = quizzes.find(q => q.id === quizId);
+    if (!originalQuiz) return;
     
     // Modal açıksa kapat
     closeCategoryModal();
     
+    // Tarım ürünleri için items'ları karıştır, diğerleri için orijinal kullan
+    const isCityMode = originalQuiz.category === 'tarim-urunleri';
+    if (isCityMode) {
+        // Items'ları karıştır (orijinal quiz'i değiştirmeden)
+        const shuffledItems = [...originalQuiz.items].sort(() => Math.random() - 0.5);
+        currentQuiz = {
+            ...originalQuiz,
+            items: shuffledItems
+        };
+    } else {
+        currentQuiz = originalQuiz;
+    }
+    
     activeCategoryStyle = getCategoryStyle(currentQuiz.category);
     
-    const isCityMode = currentQuiz.category === 'tarim-urunleri';
     placedCards = {};
     cardAssignments = {};
     selectedCityForItem = null;
