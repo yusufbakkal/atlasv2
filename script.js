@@ -776,17 +776,17 @@ function setupMap() {
                                     e.preventDefault();
                                     handleCitySelectionClick.call(this);
                                 }, { passive: false });
-                                path.addEventListener('mousemove', function(e) {
-                                    const cityNameEl = mapStage.querySelector('#game-city-name');
-                                    if (cityNameEl) {
-                                        cityNameEl.classList.add('show-city-name--active');
-                                        // Harita container'ına göre konumlandır
-                                        const rect = mapStage.getBoundingClientRect();
+                        path.addEventListener('mousemove', function(e) {
+                            const cityNameEl = mapStage.querySelector('#game-city-name');
+                            if (cityNameEl) {
+                                cityNameEl.classList.add('show-city-name--active');
+                                // Harita container'ına göre konumlandır
+                                const rect = mapStage.getBoundingClientRect();
                                         cityNameEl.style.left = (e.clientX - rect.left + 20) + 'px';
                                         cityNameEl.style.top = (e.clientY - rect.top + 20) + 'px';
-                                        cityNameEl.textContent = this.getAttribute('title');
-                                    }
-                                });
+                                cityNameEl.textContent = this.getAttribute('title');
+                            }
+                        });
                                 path.addEventListener('mouseleave', function() {
                                     const cityNameEl = mapStage.querySelector('#game-city-name');
                                     if (cityNameEl) {
