@@ -658,13 +658,23 @@ header {
 }
 
 /* Oyun ekranındaki harita için il ismi gösterimi */
-.map-stage {
-    position: relative;
-}
-
 .map-stage .show-city-name {
+    position: absolute;
     z-index: 1000;
     pointer-events: none;
+    background-color: #f39c12;
+    border-radius: 10px;
+    color: #fff;
+    padding: 15px 25px;
+    opacity: 0;
+    visibility: hidden;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.map-stage .show-city-name.show-city-name--active {
+    opacity: 1;
+    visibility: visible;
 }
 
 .map-container.picker {
