@@ -216,6 +216,79 @@ function getDefaultQuizzes() {
             ]
         },
         {
+            id: '1763561284849',
+            name: 'Kıyı Set Gölleri',
+            category: 'goller',
+            items: [
+                { name: 'Balık', x: 53.19, y: 12.69 },
+                { name: 'Terkos', x: 20.45, y: 16.93 },
+                { name: 'K. Çekmece', x: 21.27, y: 22.47 },
+                { name: 'B. Çekmece', x: 19.07, y: 20.84 },
+                { name: 'Akyatan', x: 50.58, y: 83.12 },
+                { name: 'Ağyatan', x: 52.78, y: 80.18 }
+            ]
+        },
+        {
+            id: '1763561456369',
+            name: 'Alüvyal Set Gölleri',
+            category: 'goller',
+            items: [
+                { name: 'Eymir', x: 37.78, y: 32.58 },
+                { name: 'Mogan', x: 36.96, y: 42.36 },
+                { name: 'Gala', x: 8.06, y: 23.78 },
+                { name: 'Marmara', x: 17.01, y: 54.75 },
+                { name: 'Bafa', x: 14.12, y: 72.03 },
+                { name: 'Köyceğiz', x: 19.48, y: 80.84 }
+            ]
+        },
+        {
+            id: '1763561706964',
+            name: 'Volkanik Set Gölleri',
+            category: 'goller',
+            items: [
+                { name: 'Çıldır', x: 87.31, y: 20.84 },
+                { name: 'Balık', x: 87.18, y: 38.78 },
+                { name: 'Van', x: 89.38, y: 53.45 },
+                { name: 'Haçlı', x: 81.12, y: 49.86 },
+                { name: 'Nazik', x: 82.36, y: 58.66 },
+                { name: 'Erçek', x: 89.93, y: 60.95 }
+            ]
+        },
+        {
+            id: '1763561919920',
+            name: 'Heyelan Set Gölleri',
+            category: 'goller',
+            items: [
+                { name: 'Yedigöller', x: 34.07, y: 23.45 },
+                { name: 'Abant', x: 32.14, y: 28.99 },
+                { name: 'Borabay', x: 51.4, y: 24.1 },
+                { name: 'Zinav', x: 56.91, y: 30.3 },
+                { name: 'Tortum', x: 80.71, y: 30.62 }
+            ]
+        },
+        {
+            id: '1763562210632',
+            name: 'Volkanik Göller',
+            category: 'goller',
+            items: [
+                { name: 'Acıgöl Maar Gölü', x: 47.69, y: 51.82 },
+                { name: 'Meke Maar Gölü', x: 38.88, y: 66.49 },
+                { name: 'Nemrut Krater Gölü', x: 84.42, y: 56.06 }
+            ]
+        },
+        {
+            id: '1763562436132',
+            name: 'Karstik Göller',
+            category: 'goller',
+            items: [
+                { name: 'Hafik', x: 59.8, y: 41.71 },
+                { name: 'Suğla', x: 35.31, y: 69.42 },
+                { name: 'Salda', x: 25.12, y: 72.69 },
+                { name: 'Avlan', x: 25.26, y: 85.4 },
+                { name: 'Kestel', x: 27.6, y: 72.03 }
+            ]
+        },
+        {
             id: '1764345925228',
             name: 'Tarım Ürünleri',
             category: 'tarim-urunleri',
@@ -257,6 +330,21 @@ function getDefaultQuizzes() {
                 { name: 'Mercimek', city: 'Yozgat' },
                 { name: 'Nohut', city: 'Ankara' },
                 { name: 'Mısır', city: 'Konya' }
+            ]
+        },
+        {
+            id: '1764602578421',
+            name: 'Hayvancılık',
+            category: 'tarim-urunleri',
+            items: [
+                { name: 'Sığır', city: 'Konya' },
+                { name: 'Manda', city: 'Samsun' },
+                { name: 'Koyun', city: 'Van' },
+                { name: 'Kıl Keçisi', city: 'Mersin' },
+                { name: 'Tiftik Keçisi', city: 'Ankara' },
+                { name: 'Arıcılık', city: 'Ordu' },
+                { name: 'İpek Böceği', city: 'Diyarbakır' },
+                { name: 'Kümes', city: 'Manisa' }
             ]
         }
     ];
